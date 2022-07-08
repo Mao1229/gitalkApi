@@ -17,17 +17,14 @@ import java.util.Map;
 @RestController
 public class Apicontroller {
 
-    private String client_id = "你的ID";
-    private String client_secret = "你的秘钥";
-
-    @PostMapping("/get_access_token")
-    public String get_access_token(@RequestBody Map<String, Object> mapList) throws IOException {
+    @PostMapping("/getAccessToken")
+    public String getAccessToken(@RequestBody Map<String, Object> mapList) throws IOException {
         String url = "https://github.com/login/oauth/access_token";
 
         Map params = new HashMap();
         params.put("code", mapList.get("code"));
-        params.put("client_id", client_id);
-        params.put("client_secret", client_secret);
+        params.put("client_id", mapList.get("client_id"));
+        params.put("client_secret", mapList.get("client_secret"));
 
         String result = HttpUtil.post(url, JSONObject.toJSONString(params));
         MultiMap multiMap = new MultiMap();
@@ -39,7 +36,4 @@ public class Apicontroller {
         resultMap.put("token_type",multiMap.get("token_type"));
         return JSONObject.toJSONString(resultMap);
     }
-
-
-
 }
