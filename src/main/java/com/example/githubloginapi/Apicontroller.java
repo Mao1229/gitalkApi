@@ -23,8 +23,8 @@ public class Apicontroller {
 
         Map params = new HashMap();
         params.put("code", mapList.get("code"));
-        params.put("client_id", mapList.get("clientID"));
-        params.put("client_secret", mapList.get("clientSecret"));
+        params.put("client_id", mapList.get("client_id"));
+        params.put("client_secret", mapList.get("client_secret"));
 
         String result = HttpUtil.post(url, JSONObject.toJSONString(params));
         MultiMap multiMap = new MultiMap();
