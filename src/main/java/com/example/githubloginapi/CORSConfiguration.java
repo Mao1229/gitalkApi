@@ -11,7 +11,7 @@ public class CORSConfiguration extends WebMvcConfigurationSupport {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedMethods("*")
-                .allowedOrigins("https://wiki.fangting.cc/")
+                .allowedOrigins("https://wiki.fangting.cc/","https://fangting.cc/")
                 .allowedHeaders("*");
         super.addCorsMappings(registry);
     }
